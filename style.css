@@ -12,11 +12,27 @@
   box-sizing: border-box;
 }
 
+html, body {
+  overflow-x: hidden;
+}
+
+
+#bg-video {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  z-index: -1; /* sends video behind content */
+}
+
+
 body {
   font-family: 'Orbitron', sans-serif;
   overflow-y: auto;
 
-  background-image: url("d93c431feb38670e487c1adafbef8911.jpg");
+  background-image: url("Jan-Wallpaper-APTheCreative.jpg");
   background-size: cover;
   background-position: center;
   background-repeat: no-repeat;
@@ -54,6 +70,7 @@ body {
   flex-direction: column;
   justify-content: center;
   perspective: 1000px;
+  margin-right: -400px;
 }
 
 .title {
@@ -77,9 +94,10 @@ body {
 /* Mask */
 
 .mask img {
-  width: 260px;
+  width: 660px;
   margin-top: 20px;
-  filter: drop-shadow(0 0 10px white);
+  opacity: 100%;
+  filter: drop-shadow(0 0 10px rgb(51, 132, 58));
 }
 
 /* Info section */
