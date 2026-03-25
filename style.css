@@ -15,6 +15,7 @@
 
 html, body {
   overflow-x: hidden;
+  scroll-behavior: smooth;
 }
 
 /* Background Video */
@@ -47,6 +48,7 @@ body {
   position: relative;
   display: flex;
   flex-direction: column;
+  gap: 36px;
 }
 
 /* STATIC SCREEN BORDER (THIS IS THE FIXED FRAME) */
@@ -68,11 +70,17 @@ body {
   justify-content: space-between;
   font-weight: bold;
   font-size: 20px;
+  position: sticky;
+  top: 0;
+  background: rgba(0, 0, 0, 0.35);
+  backdrop-filter: blur(6px);
+  padding: 12px 0;
+  z-index: 10;
 }
 
 /* Hero Section */
 .hero {
-  flex: 1;
+  min-height: 75vh;
   text-align: center;
   display: flex;
   flex-direction: column;
@@ -109,6 +117,35 @@ body {
   font-family: 'subtitlefont', sans-serif;
 }
 
+.section-title {
+  color: red;
+  font-size: 24px;
+  margin-bottom: 20px;
+  font-family: "condenso", sans-serif;
+  letter-spacing: 1px;
+}
+
+.projects-section,
+.achievements-section,
+.contact-section {
+  border-top: 2px solid black;
+  padding-top: 24px;
+  color: white;
+}
+
+.project-card {
+  background: rgba(255, 255, 255, 0.05);
+  border: 1px solid rgba(255, 255, 255, 0.1);
+  border-radius: 16px;
+  padding: 20px;
+  max-width: 750px;
+  font-family: "subtitlefont", sans-serif;
+}
+
+.project-card h3 {
+  margin-bottom: 12px;
+}
+
 #head {
   font-size: 18px;
   margin-bottom: 10px;
@@ -119,10 +156,15 @@ body {
 .achievements {
   font-family: "subtitlefont", sans-serif;
   width: 80%;
-  margin: 60px auto;
+  margin: 10px auto;
   display: flex;
   flex-direction: column;
   gap: 40px;
+}
+
+.contact-section p {
+  font-family: "subtitlefont", sans-serif;
+  margin-bottom: 10px;
 }
 
 /* Achievement Card */
@@ -225,8 +267,18 @@ body {
 
 /* Responsive */
 @media (max-width: 768px) {
+  .topbar {
+    flex-direction: column;
+    gap: 10px;
+  }
+
   .title {
     font-size: 36px;
+  }
+
+  .hero {
+    min-height: 50vh;
+    padding-left: 0;
   }
 
   .info {
