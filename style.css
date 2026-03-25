@@ -6,6 +6,11 @@
   font-family: "subtitlefont";
   src: url("fonts/EditorsNote-Light-iF664322be5b734.otf");
 }
+@font-face {
+  font-family: "akiraexpanded";
+  src: url("fonts/Akira Expanded Demo.otf");
+}
+
 
 * {
   margin: 0;
@@ -30,9 +35,11 @@ html, body {
 
 /* Body */
 body {
-  font-family: 'Orbitron', sans-serif;
+  font-family: 'akiraexpanded', sans-serif;
+  font-weight: normal;
   overflow-y: auto;
-  background-image: url("Jan-Wallpaper-APTheCreative.jpg");
+
+  background-image: url("blacktexture.jpg");
   background-size: cover;
   background-position: center;
   background-repeat: no-repeat;
@@ -65,11 +72,8 @@ body {
 /* Top Bar */
 .topbar {
   display: flex;
-  justify-content: space-between;
-  font-weight: bold;
-  font-size: 20px;
+  justify-content: center;  /* center everything */
 }
-
 /* Hero Section */
 .hero {
   flex: 1;
@@ -112,42 +116,50 @@ body {
 #head {
   font-size: 18px;
   margin-bottom: 10px;
-  color: red;
+  color: rgb(0, 0, 0);
 }
+
 
 /* Achievements Section */
 .achievements {
   font-family: "subtitlefont", sans-serif;
-  width: 80%;
-  margin: 60px auto;
+  width: min(1100px, 90%);
+  margin: 80px auto;
   display: flex;
   flex-direction: column;
-  gap: 40px;
+  gap: 30px;
 }
+
+
 
 /* Achievement Card */
 .achievement-card {
   display: flex;
   align-items: center;
+  gap: 30px;
+
   background: rgba(255, 255, 255, 0.05);
-  backdrop-filter: blur(10px);
+  backdrop-filter: blur(12px);
+
   border-radius: 20px;
-  overflow: hidden;
-  transition: 0.4s ease;
+  padding: 20px;
+
   border: 1px solid rgba(255,255,255,0.1);
+  transition: 0.3s ease;
 }
 
 .achievement-card:hover {
-  transform: translateY(-8px);
-  box-shadow: 0 0 25px rgb(255, 68, 68);
+  transform: translateY(-6px);
+  box-shadow: 0 0 20px rgba(0, 0, 0, 0.6);
 }
 
+/* Image */
 .achievement-img {
-
-  width: 100px;   /* change this value */
-  height: auto;   /* keeps original ratio */
-
-
+  flex-shrink: 0;
+  width: 120px;
+  height: 120px;
+  border-radius: 15px;
+  overflow: hidden;
 }
 
 .achievement-img img {
@@ -156,29 +168,31 @@ body {
   object-fit: cover;
 }
 
+/* Content */
 .achievement-content {
-  flex: 2;
-  padding: 30px;
+  flex: 1;
   color: white;
 }
 
 .achievement-content h2 {
-  font-size: 26px;
-  margin-bottom: 15px;
-}
-
-.achievement-content p {
-  font-size: 15px;
-  line-height: 1.6;
-  opacity: 0.8;
+  font-size: 22px;
   margin-bottom: 10px;
 }
 
+.achievement-content p {
+  font-size: 14px;
+  line-height: 1.6;
+  opacity: 0.8;
+  margin-bottom: 8px;
+}
+
 .achievement-content span {
-  font-size: 13px;
-  color: red;
+  font-size: 12px;
+  color: #ff4444;
   letter-spacing: 1px;
 }
+
+
 
 /* Barcode */
 .barcode {
@@ -199,23 +213,33 @@ body {
   );
 }
 
+.nav {
+  display: flex;
+  justify-content: center;   /* centers horizontally */
+  align-items: center;
+  gap: 90px;                /* space between items */
+}
+
 /* Navigation */
 .nav a {
-  margin-left: 20px;
   text-decoration: none;
-  color: rgb(255, 255, 255);
-  font-size: 14px;
+
+  color: transparent;                 /* removes fill */
+  -webkit-text-stroke: 1px white;     /* outline color + thickness */
+
+  font-size: 15px;
+  letter-spacing: 3px;
   position: relative;
 }
 
 .nav a::after {
   content: "";
   position: absolute;
-  width: 0;
+  width: 40%;
   height: 2px;
   bottom: -5px;
   left: 0;
-  background: black;
+  background: rgb(255, 255, 255);
   transition: 0.3s;
 }
 
